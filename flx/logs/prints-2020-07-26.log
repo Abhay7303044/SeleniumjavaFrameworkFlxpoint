@@ -1,0 +1,5 @@
+17:44:34.044 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+17:44:34.201 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: 30:d1:6b:ff:fe:f5:39:5f (auto-detected)
+17:44:34.248 [AsyncHttpClient-3-1] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+17:44:34.248 [AsyncHttpClient-3-1] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+17:44:34.248 [AsyncHttpClient-3-1] DEBUG io.netty.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@b88dbba

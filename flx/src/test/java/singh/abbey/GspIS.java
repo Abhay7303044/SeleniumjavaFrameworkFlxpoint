@@ -1,0 +1,139 @@
+package singh.abbey;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import resources.Base;
+
+public class GspIS extends Base {
+
+	public static WebDriver driver;
+	public static Logger log = LogManager.getLogger(Base.class.getName());
+
+	@BeforeMethod
+	public void intallizationTheBrowser() throws InterruptedException, IOException {
+
+		driver = initalizeDriver();
+
+	}
+
+	@Test(dataProvider = "getData_6", priority = 1, groups = { "Regression" })
+	public void InventorySourceCreate(String source, String sourceName, String vendor, String description,
+			String SourceName, String ChannelName, String ConnectionName, String ExportFile, String MappingTemplate)
+			throws InterruptedException {
+		driver.findElement(By.xpath("//input[@type='email']")).sendKeys(prop.getProperty("username"));
+		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(prop.getProperty("password"));
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//a[@href='/sources']")).click();
+		driver.findElement(By.xpath("//button[@class='button is-primary']")).click();
+
+		WebElement element = driver.findElement(By.xpath("//select[@name='type']"));
+		Select select = new Select(element);
+		select.selectByVisibleText(source);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@name='name']")).sendKeys(sourceName);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[text()='Create New Vendor']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//input[@name='name'])[2]")).sendKeys(vendor);
+		driver.findElement(By.xpath("//button[@type='button']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//textarea[@class='textarea']")).sendKeys(description);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[@class='button button is-primary is-medium']")).click();
+		Thread.sleep(5000);
+
+		List<WebElement> option = driver
+				.findElements(By.xpath("//td[@class='is-skinny-no-wrap']/strong[@class='title is-size-6']"));
+		for (int i = 0; i < option.size(); i++) {
+			if (option.get(i).getText().contains(SourceName)) {
+
+				driver.findElements(By.xpath("//a[@class='button is-medium']")).get(i).click();
+				break;
+			}
+		}
+
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//li[@class='sidebar-menu-item']/a)[2]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//li[@class='sidebar-menu-item'])[2]/ul/li")).click();
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("//button[@class='button is-primary']")).click();
+		driver.findElement(By.xpath("//span[text()='Create an Integration']")).click();
+		Thread.sleep(1000);
+
+		WebElement element3 = driver.findElement(By.xpath("//select[@name='integrationTypeId']"));
+		Select select3 = new Select(element3);
+		select3.selectByVisibleText(ChannelName);
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("(//h5)[2]")).click();
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("//button[@class='button is-info']")).click();
+		driver.findElement(By.xpath("//input[@class='input']")).sendKeys(ConnectionName);
+
+		WebElement element4 = driver.findElement(By.xpath("//select[@name='connection']"));
+		Select select4 = new Select(element4);
+		select4.selectByVisibleText("Inventory Source File");
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("//input[@name='file-url']")).sendKeys(ExportFile);
+		driver.findElement(By.xpath("//button[@class='button button is-primary is-medium']")).click();
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//span[text()='Test Connection']")).click();
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("(//h5)[3]")).click();
+		Thread.sleep(1000);
+
+		WebElement element5 = driver.findElement(By.xpath("//select[@name='mapping_event_id']"));
+		Select select5 = new Select(element5);
+		select5.selectByVisibleText(MappingTemplate);
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("(//h5)[4]")).click();
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("//button[@class='button button is-info']")).click();
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath("(//h5)[4]")).click();
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("(//div[@class='button is-primary'])[2]")).click();
+		Thread.sleep(9000);
+
+	}
+
+	@DataProvider
+	public Object[][] getData_6() {
+		Object[][] data = new Object[1][9];
+
+		data[0][0] = "Data Source";
+		data[0][1] = "Demo3";
+		data[0][2] = "shiva";
+		data[0][3] = "This is a testing demo source.";
+		data[0][4] = "Demo3";
+		data[0][5] = "Inventory Source";
+		data[0][6] = "InventorySourceConnection";
+		data[0][7] = "https://s3.amazonaws.com/exports.inventorysource.com/automated-export/prod/1503347/500034.csv";
+		data[0][8] = "Inventory template";
+
+		return data;
+	}
+
+}

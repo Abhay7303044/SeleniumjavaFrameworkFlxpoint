@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="178401" started-at="2020-08-15T09:43:31Z" finished-at="2020-08-15T09:46:30Z">
+    <groups>
+      <group name="Regression">
+        <method signature="FLXSource.SourceCreate(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:singh.abbey.FLXSource@4e096385]" name="SourceCreate" class="singh.abbey.FLXSource"/>
+      </group> <!-- Regression -->
+    </groups>
+    <test name="Test" duration-ms="178401" started-at="2020-08-15T09:43:31Z" finished-at="2020-08-15T09:46:30Z">
+      <class name="singh.abbey.FLXSource">
+        <test-method status="PASS" signature="intallizationTheBrowser()[pri:0, instance:singh.abbey.FLXSource@4e096385]" name="intallizationTheBrowser" is-config="true" duration-ms="152812" started-at="2020-08-15T15:13:31Z" finished-at="2020-08-15T15:16:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- intallizationTheBrowser -->
+        <test-method status="PASS" signature="SourceCreate(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:singh.abbey.FLXSource@4e096385]" name="SourceCreate" duration-ms="25507" started-at="2020-08-15T15:16:04Z" data-provider="getData_4" finished-at="2020-08-15T15:16:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Data Source]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Rohit]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[shiva]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[This is a testing demo source.]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SourceCreate -->
+        <test-method status="PASS" signature="CloseTheBrowser()[pri:0, instance:singh.abbey.FLXSource@4e096385]" name="CloseTheBrowser" is-config="true" duration-ms="67" started-at="2020-08-15T15:16:29Z" finished-at="2020-08-15T15:16:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CloseTheBrowser -->
+      </class> <!-- singh.abbey.FLXSource -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

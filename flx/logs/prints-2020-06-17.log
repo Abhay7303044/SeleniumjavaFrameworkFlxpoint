@@ -1,0 +1,8 @@
+01:21:41.246 [main] INFO  resources.Base - Driver is intialized
+01:21:53.468 [main] INFO  resources.Base - Navigate to landingPage
+01:21:58.498 [main] INFO  resources.Base - Sucessfully validated Text message
+01:22:04.845 [main] INFO  resources.Base - Driver is intialized
+01:22:18.836 [main] INFO  resources.Base - Navigate to landingPage
+01:23:25.691 [main] INFO  resources.Base - Driver is intialized
+01:23:33.009 [main] INFO  resources.Base - Navigate to landingPage
+01:23:36.731 [main] INFO  resources.Base - Sucessfully validated Text message
